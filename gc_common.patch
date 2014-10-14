@@ -1,0 +1,14 @@
+diff --git a/includes/common.inc b/includes/common.inc
+index e1a1673..56a301a 100644
+--- a/includes/common.inc
++++ b/includes/common.inc
+@@ -5157,6 +5157,9 @@ function _drupal_bootstrap_full() {
+     // - The theme can have hook_*_alter() implementations affect page building
+     //   (e.g., hook_form_alter(), hook_node_view_alter(), hook_page_alter()),
+     //   ahead of when rendering starts.
++    if(function_exists('gc_boot')){
++      gc_boot();
++    }
+     menu_set_custom_theme();
+     drupal_theme_initialize();
+     module_invoke_all('init');
